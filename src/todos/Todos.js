@@ -13,7 +13,7 @@ const TODO_LIST = [
     name: "Patrol Gotham City",
     description:
       "Keep the streets of Gotham safe by patrolling high-crime areas. Watch out for the Bat-Signal!",
-    status: false,
+    status: true,
   },
   {
     id: 2,
@@ -70,7 +70,7 @@ const Todos = () => {
           onAddNewTodo={() => {
             setTodos((prev) => [
               ...prev,
-              { id: todos.length + 1, ...newTodosRecord },
+              { id: todos[todos.length - 1].id + 1, ...newTodosRecord },
             ]);
             setIsAddingTodoDialogOpen(false);
             resetNewRecord();

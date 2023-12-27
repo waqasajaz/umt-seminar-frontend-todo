@@ -36,7 +36,6 @@ const TODO_LIST = [
       "Engage in rigorous physical and mental training sessions with Alfred. Sharpen combat skills and strategize for upcoming challenges.",
     status: false,
   },
-  // Add more Batman-themed tasks as needed
 ];
 
 const Todos = () => {

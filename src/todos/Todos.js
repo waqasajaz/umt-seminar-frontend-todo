@@ -7,71 +7,38 @@ import AddIcon from "@mui/icons-material/Add";
 import TodosCreateDialog from "./TodosCreateDialog";
 import TodosGridFilters from "./TodosGridFilters";
 
-const lorem =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-
 const TODO_LIST = [
   {
     id: 1,
-    name: "First Todo",
-    description: `This is the first todo. ${lorem}`,
-    status: true,
+    name: "Patrol Gotham City",
+    description:
+      "Keep the streets of Gotham safe by patrolling high-crime areas. Watch out for the Bat-Signal!",
+    status: false,
   },
   {
     id: 2,
-    name: "Second Todo",
-    description: `This is the second todo. ${lorem}`,
-    status: false,
+    name: "Upgrade Batmobile",
+    description:
+      "Visit the Batcave and upgrade the Batmobile with the latest gadgets and technology. Ensure it's ready for high-speed chases.",
+    status: true,
   },
   {
     id: 3,
-    name: "Third Todo",
-    description: `This is the third todo. ${lorem}`,
-    status: true,
+    name: "Investigate Crime Scene at Ace Chemicals",
+    description:
+      "Head to Ace Chemicals and investigate reports of suspicious activity. Be prepared for unexpected encounters and chemical hazards.",
+    status: false,
   },
   {
     id: 4,
-    name: "Fourth Todo",
-    description: `This is the fourth todo. ${lorem}`,
+    name: "Train with Alfred",
+    description:
+      "Engage in rigorous physical and mental training sessions with Alfred. Sharpen combat skills and strategize for upcoming challenges.",
     status: false,
   },
-  {
-    id: 5,
-    name: "Fifth Todo",
-    description: `This is the fifth todo. ${lorem}`,
-    status: true,
-  },
-  {
-    id: 6,
-    name: "Sixth Todo",
-    description: `This is the sixth todo. ${lorem}`,
-    status: false,
-  },
-  {
-    id: 7,
-    name: "Seventh Todo",
-    description: `This is the seventh todo. ${lorem}`,
-    status: true,
-  },
-  {
-    id: 8,
-    name: "Eighth Todo",
-    description: `This is the eighth todo. ${lorem}`,
-    status: false,
-  },
-  {
-    id: 9,
-    name: "Ninth Todo",
-    description: `This is the ninth todo. ${lorem}`,
-    status: true,
-  },
-  {
-    id: 10,
-    name: "Tenth Todo",
-    description: `This is the tenth todo. ${lorem}`,
-    status: false,
-  },
+  // Add more Batman-themed tasks as needed
 ];
+
 const Todos = () => {
   const [todos, setTodos] = useState(null);
   const [isAddingTodoDialogOpen, setIsAddingTodoDialogOpen] = useState(false);

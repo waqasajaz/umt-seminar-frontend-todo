@@ -30,7 +30,7 @@ const TodosTable = ({ todos, setTodos, todosTableFilters }) => {
     <>
       {openDeleteTodosDialog ? (
         <TodosDeleteDialog
-          closeDeleteDialog={() => {
+          onCloseDeleteDialog={() => {
             setOpenDeleteTodosDialog(false);
             setRowToBeEdit(null);
           }}

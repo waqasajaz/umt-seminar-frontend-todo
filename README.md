@@ -6,4 +6,11 @@ This project was created by [ExpertsCloud](https://theexpertscloud.com/).
 
 ### Frontend
 
-- node js v18.19.0
+- nodejs v18
+
+### steps
+
+- create .env file and update according to requirements
+  `cp .env.example .env`
+- start react application
+  `npm run start`

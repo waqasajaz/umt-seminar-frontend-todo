@@ -58,19 +58,6 @@ const Todos = () => {
       status: false,
     });
 
-  // useEffect(() => {
-  //   if (
-  //     todosTableFilters.status === true ||
-  //     todosTableFilters.status === false
-  //   ) {
-  //     setTodos(() =>
-  //       TODO_LIST.filter((todo) => todo.status === todosTableFilters.status)
-  //     );
-  //   } else {
-  //     setTodos(TODO_LIST);
-  //   }
-  // }, [todosTableFilters]);
-
   return (
     <Grid container mt={3}>
       {isAddingTodoDialogOpen ? (

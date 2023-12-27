@@ -11,6 +11,12 @@ This project was created by [ExpertsCloud](https://theexpertscloud.com/).
 ### steps
 
 - create .env file and update according to requirements
-  `cp .env.example .env`
+
+```bash
+  cp .env.example .env
+```
+
 - start react application
-  `npm run start`
+  ```
+  npm run start
+  ```

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Table from "@mui/material/Table";
 import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
@@ -10,7 +10,18 @@ import TodosDeleteDialog from "./TodosDeleteDialog";
 import TodosGridEditableRow from "./TodosGridEditableRow";
 import TodosGridDisplayRow from "./TodosGridDisplayRow";
 
-const TodosTable = ({ todos, setTodos }) => {
+const TodosTable = ({ todos, setTodos, todosTableFilters }) => {
+  const tableRowData = useMemo(() => {
+    if (
+      todosTableFilters.status === true ||
+      todosTableFilters.status === false
+    ) {
+      return todos.filter((todo) => todo.status === todosTableFilters.status);
+    } else {
+    }
+    return todos;
+  }, [todos, todosTableFilters]);
+
   const [rowToBeEdit, setRowToBeEdit] = useState(null);
   const [openDeleteTodosDialog, setOpenDeleteTodosDialog] = useState(false);
 
@@ -50,7 +61,7 @@ const TodosTable = ({ todos, setTodos }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {todos.map((row) => (
+            {tableRowData.map((row) => (
               <TableRow key={row.id}>
                 <TableCell component="th" scope="row">
                   {row.id}

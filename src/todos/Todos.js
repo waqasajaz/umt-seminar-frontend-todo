@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import TodosTable from "./TodosTable";
@@ -40,7 +40,7 @@ const TODO_LIST = [
 ];
 
 const Todos = () => {
-  const [todos, setTodos] = useState(null);
+  const [todos, setTodos] = useState(TODO_LIST);
   const [isAddingTodoDialogOpen, setIsAddingTodoDialogOpen] = useState(false);
   const [todosTableFilters, setTodosTableFilters] = useState({
     status: "all",
@@ -58,18 +58,18 @@ const Todos = () => {
       status: false,
     });
 
-  useEffect(() => {
-    if (
-      todosTableFilters.status === true ||
-      todosTableFilters.status === false
-    ) {
-      setTodos(() =>
-        TODO_LIST.filter((todo) => todo.status === todosTableFilters.status)
-      );
-    } else {
-      setTodos(TODO_LIST);
-    }
-  }, [todosTableFilters]);
+  // useEffect(() => {
+  //   if (
+  //     todosTableFilters.status === true ||
+  //     todosTableFilters.status === false
+  //   ) {
+  //     setTodos(() =>
+  //       TODO_LIST.filter((todo) => todo.status === todosTableFilters.status)
+  //     );
+  //   } else {
+  //     setTodos(TODO_LIST);
+  //   }
+  // }, [todosTableFilters]);
 
   return (
     <Grid container mt={3}>
@@ -123,7 +123,11 @@ const Todos = () => {
           </Grid>
 
           {todos?.length ? (
-            <TodosTable todos={todos} setTodos={setTodos} />
+            <TodosTable
+              todos={todos}
+              setTodos={setTodos}
+              todosTableFilters={todosTableFilters}
+            />
           ) : null}
         </Paper>
       </Grid>

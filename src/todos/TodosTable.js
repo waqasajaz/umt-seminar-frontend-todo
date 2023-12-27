@@ -9,6 +9,7 @@ import Paper from "@mui/material/Paper";
 import TodosDeleteDialog from "./TodosDeleteDialog";
 import TodosGridEditableRow from "./TodosGridEditableRow";
 import TodosGridDisplayRow from "./TodosGridDisplayRow";
+import { deleteTodoRecord, updateTodoRecord } from "./todosApiCalls";
 
 const TodosTable = ({ todos, setTodos, todosTableFilters }) => {
   const tableRowData = useMemo(() => {
@@ -33,7 +34,8 @@ const TodosTable = ({ todos, setTodos, todosTableFilters }) => {
             setOpenDeleteTodosDialog(false);
             setRowToBeEdit(null);
           }}
-          onDeleteTodo={() => {
+          onDeleteTodo={async () => {
+            await deleteTodoRecord(rowToBeEdit.id);
             setTodos((prev) => prev.filter((row) => row.id !== rowToBeEdit.id));
             setOpenDeleteTodosDialog(false);
             setRowToBeEdit(null);
@@ -73,10 +75,15 @@ const TodosTable = ({ todos, setTodos, todosTableFilters }) => {
                     rowData={rowToBeEdit}
                     setRowData={setRowToBeEdit}
                     onCancelEditing={() => setRowToBeEdit(null)}
-                    onConfirmEditing={() => {
+                    onConfirmEditing={async () => {
+                      const updatedTodoRecord = await updateTodoRecord(
+                        rowToBeEdit
+                      );
                       setTodos((prev) =>
                         prev.map((row) =>
-                          row.id === rowToBeEdit.id ? rowToBeEdit : row
+                          row.id === updatedTodoRecord.id
+                            ? updatedTodoRecord
+                            : row
                         )
                       );
                       setRowToBeEdit(null);

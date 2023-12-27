@@ -1,5 +1,5 @@
 import React from "react";
-import Checkbox from "@mui/material/Checkbox";
+import Switch from "@mui/material/Switch";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -16,7 +16,7 @@ const TodosCreateDialog = ({
 }) => {
   return (
     <Dialog open={true} onClose={onDialogClose}>
-      <DialogTitle>Delete Todo Record</DialogTitle>
+      <DialogTitle>Add New Todo Record</DialogTitle>
       <DialogContent>
         <Grid
           container
@@ -84,7 +84,7 @@ const TodosCreateDialog = ({
               Todo Status:
             </Grid>
             <Grid item xs={8}>
-              <Checkbox
+              <Switch
                 checked={newTodosRecord.status}
                 onChange={() =>
                   setNewTodosRecord((prev) => ({

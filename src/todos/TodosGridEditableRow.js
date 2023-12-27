@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import Checkbox from "@mui/material/Checkbox";
+import Switch from "@mui/material/Switch";
 import TableCell from "@mui/material/TableCell";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
@@ -67,7 +67,7 @@ const TodosGridEditableRow = ({
         />
       </TableCell>
       <TableCell>
-        <Checkbox
+        <Switch
           checked={rowData.status}
           onChange={() =>
             setRowData((prev) => ({
